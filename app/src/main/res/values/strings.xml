@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Words</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

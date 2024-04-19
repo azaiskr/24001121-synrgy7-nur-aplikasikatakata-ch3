@@ -9,6 +9,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -29,6 +30,7 @@ class ListsOfWordsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
         _fragmentBinding = FragmentListsOfWordsBinding.inflate(inflater, container, false)
         return fragmentBinding.root
     }
@@ -44,6 +46,7 @@ class ListsOfWordsFragment : Fragment() {
         val title = "Words start with $arguments"
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             setTitle(title)
+            setDisplayHomeAsUpEnabled(true)
         }
 
         when (arguments) {
@@ -162,6 +165,16 @@ class ListsOfWordsFragment : Fragment() {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            android.R.id.home -> {
+                findNavController().navigate(R.id.action_listsOfWordsFragment_to_homeFragment)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {

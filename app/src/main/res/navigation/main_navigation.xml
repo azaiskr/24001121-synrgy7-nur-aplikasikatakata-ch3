@@ -18,5 +18,10 @@
         android:name="com.synrgy.aplikasikatakata.ListsOfWordsFragment"
         android:label="fragment_lists_of_words"
         tools:layout="@layout/fragment_lists_of_words" >
+        <action
+            android:id="@+id/action_listsOfWordsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
